@@ -3,12 +3,14 @@
 ## File Organization
 
 ### Colocation Principle
+
 - **Feature-Based Organization:** Colocate component files (JSX/TSX, CSS Modules, tests) within a feature folder.
 - **Related Files Together:** Keep files that change together in the same directory.
 
 ### Directory Structure
 
 #### Core Directories
+
 - **`src/components/`** - Reusable UI components
   - `shared/` - Components used in both client and server
   - `ui/` - Basic UI components (buttons, inputs, etc.)
@@ -31,20 +33,22 @@
 ### Import/Export Patterns
 
 #### ❌ Avoid Barrel Files
+
 - **No Barrel Files:** Do not use barrel files (e.g., `index.ts` that re-exports from other files) for module exports.
 - **Direct Imports:** Always import directly from the specific file to improve traceability and avoid circular dependencies.
 
 ```typescript
 // ❌ Avoid this
-export * from './UserCard';
-export * from './UserList';
+export * from './UserCard'
+export * from './UserList'
 
 // ✅ Do this instead
-import { UserCard } from '@/components/ui/UserCard';
-import { UserList } from '@/components/ui/UserList';
+import { UserCard } from '@/components/ui/UserCard'
+import { UserList } from '@/components/ui/UserList'
 ```
 
 #### Private Folders
+
 - **Internal Files:** Use underscore-prefixed folders (e.g., `_lib`, `_components`) for internal, non-route-related files.
 
 ### Best Practices

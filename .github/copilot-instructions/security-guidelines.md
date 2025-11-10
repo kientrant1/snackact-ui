@@ -28,21 +28,21 @@
 
 ```typescript
 // ✅ Good - Using siteConfig for environment variables
-import { siteConfig } from '@/constants/site-config';
-const apiKey = siteConfig.STRIPE.SECRET_KEY;
+import { siteConfig } from '@/constants/site-config'
+const apiKey = siteConfig.STRIPE.SECRET_KEY
 
 // ❌ Bad - Using process.env directly in components/utils
-const apiKey = process.env.STRIPE_SECRET_KEY;
+const apiKey = process.env.STRIPE_SECRET_KEY
 
 // ❌ Bad - Hardcoded secrets
-const apiKey = "sk_live_actual_key_here";
+const apiKey = 'sk_live_actual_key_here'
 
 // ✅ Good - Input validation
 const userSchema = z.object({
   email: z.string().email(),
-  name: z.string().min(1).max(100)
-});
+  name: z.string().min(1).max(100),
+})
 
 // ✅ Good - Sanitized output
-const sanitizedHtml = DOMPurify.sanitize(userInput);
+const sanitizedHtml = DOMPurify.sanitize(userInput)
 ```

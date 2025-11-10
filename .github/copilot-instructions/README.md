@@ -27,10 +27,13 @@ This project follows a modular approach to coding guidelines. Each aspect is doc
 ## Quick Reference
 
 ### Package Management
+
 This project uses **yarn** for managing dependencies. All package installations and scripts should use `yarn` instead of `npm` or `pnpm`.
 
 ### Documentation
+
 All principal documentation should be created in the `docs` folder.
 
 ### Type Organization
+
 When generating TypeScript types or interfaces, always place them in the `types/` folder with descriptive filenames (e.g. `user.ts`, `post.ts`).

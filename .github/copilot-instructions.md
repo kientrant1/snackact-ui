@@ -27,9 +27,11 @@ For detailed guidelines, see the modular instruction files in the `.github/copil
 ## Quick Reference
 
 ### Package Management
+
 This project uses **yarn** for managing dependencies. All package installations and scripts should use `yarn` instead of `npm` or `pnpm`.
 
 ### Key Principles
+
 - **TypeScript First:** All new code should be written in TypeScript
 - **Component Focus:** Keep components small, focused, and testable
 - **Security:** Never expose actual environment variables or API keys
@@ -39,4 +41,5 @@ This project uses **yarn** for managing dependencies. All package installations 
 ## Reference Links
 
 ### General Instructions
+
 - [TypeScript](https://github.com/Code-and-Sorts/awesome-copilot-instructions/blob/main/instructions/languages/typescript/typescript.instructions.md?plain=1)

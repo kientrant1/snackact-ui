@@ -1,11 +1,46 @@
 {
   "name": "snackact-ui",
-  "private": true,
   "version": "0.0.1",
   "type": "module",
+  "description": "A tasty collection of bite-sized React components that make building fun, interactive UIs a treat",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles": "./dist/style.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "typescript",
+    "tailwind"
+  ],
+  "author": "kientran",
+  "license": "MIT",
+  "homepage": "https://github.com/kientrant1/snackact-ui#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kientrant1/snackact-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kientrant1/snackact-ui/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:lib": "tsc -p tsconfig.lib.json && vite build --mode lib",
+    "prepublishOnly": "yarn build:lib && yarn typecheck && yarn lint",
     "test": "vitest",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -16,10 +51,11 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "dependencies": {
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
+  "dependencies": {},
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@storybook/react-vite": "10.0.6",
@@ -40,6 +76,8 @@
     "lint-staged": "^16.2.6",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "storybook": "10.0.6",
     "tailwindcss": "^4.1.17",
     "typescript": "~5.9.3",

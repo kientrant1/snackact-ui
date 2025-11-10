@@ -1,0 +1,35 @@
+# Development files
+src/
+public/
+.storybook/
+stories/
+dist-app/
+
+# Config files
+vite.config.ts
+tsconfig.*.json
+eslint.config.js
+tailwind.config.js
+postcss.config.js
+.prettierrc
+*.code-workspace
+
+# Git and development
+.git/
+.github/
+.husky/
+node_modules/
+.env*
+
+# Build artifacts
+*.tsbuildinfo
+.vite/
+
+# Tests
+**/*.test.*
+**/*.spec.*
+__tests__/
+coverage/
+
+# Documentation (keep README.md and LICENSE)
+docs/

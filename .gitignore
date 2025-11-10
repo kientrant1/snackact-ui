@@ -16,7 +16,7 @@
 # production
 /build
 /dist
-dist-ssr
+dist-app
 
 # misc
 .DS_Store

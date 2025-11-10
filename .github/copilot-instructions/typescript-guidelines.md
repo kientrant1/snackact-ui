@@ -7,7 +7,7 @@
 
 ## Type Organization
 
-- **Dedicated Types Folder:** When generating TypeScript types or interfaces in this project, always place them in the `types/` folder with a descriptive filename (e.g. `user.ts`, `post.ts`). 
+- **Dedicated Types Folder:** When generating TypeScript types or interfaces in this project, always place them in the `types/` folder with a descriptive filename (e.g. `user.ts`, `post.ts`).
 - **No Inline Types:** Do not define types or interfaces inside components.
 - **Clear Naming:** Use descriptive names for types and interfaces (e.g., `UserProfile`, `ApiResponse<T>`, `ProductCardProps`).
 
@@ -31,19 +31,19 @@
 ```typescript
 // In types/user.ts
 export interface User {
-  id: string;
-  name: string;
-  email: string;
+  id: string
+  name: string
+  email: string
 }
 
 export interface UserProfile extends User {
-  bio?: string;
-  avatar?: string;
+  bio?: string
+  avatar?: string
 }
 
 // In components
 interface UserCardProps {
-  user: User;
-  onEdit: (userId: string) => void;
+  user: User
+  onEdit: (userId: string) => void
 }
 ```
