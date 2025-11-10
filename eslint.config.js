@@ -15,7 +15,6 @@ export default defineConfig([
     'coverage',
     '.yarn',
     '*.config.js',
-    '*.config.ts',
   ]),
   {
     files: ['**/*.{ts,tsx}'],
