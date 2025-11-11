@@ -1,5 +1,6 @@
-import { QuizHeader } from '@/index'
+import { QuestionNavigator, QuizHeader } from '@/index'
 import '@/styles'
+import { answers, questions } from './data/quiz'
 
 export const Quiz = () => {
   const handleReset = () => {
@@ -18,6 +19,17 @@ export const Quiz = () => {
           progress={0}
           onReset={handleReset}
           onToggleNavigator={() => {}}
+        />
+        <QuestionNavigator
+          questions={questions}
+          currentIndex={0}
+          submitted={false}
+          answers={answers}
+          tags={['ALL', 'Theory', 'Practical']}
+          filterTag={'ALL'}
+          onFilterChange={() => {}}
+          onJumpToQuestion={() => {}}
+          getQuestionStatus={() => 'unanswered'}
         />
       </div>
     </div>
