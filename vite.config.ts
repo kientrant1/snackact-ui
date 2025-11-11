@@ -41,7 +41,6 @@ export default defineConfig(({ mode }) => {
               },
             },
           },
-          cssCodeSplit: false,
           sourcemap: true,
           /* Don't clear dist folder to preserve .d.ts files from TypeScript compilation
           Must cleanup dist manually before running build:lib script 
