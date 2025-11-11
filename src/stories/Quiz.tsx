@@ -8,7 +8,7 @@ export const Quiz = () => {
 
   return (
     <div className="min-h-screen p-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto snackact-ui-dark-theme">
         <QuizHeader
           timer={0}
           currentIndex={0}
