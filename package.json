@@ -43,7 +43,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build:lib": "rimraf dist && vite build --mode lib && yarn build:type",
-    "build:type": "tsc -p tsconfig.lib.json",
+    "build:type": "tsc -p tsconfig.lib.json && tsc-alias -p tsconfig.lib.json",
     "test": "vitest",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
-    "@storybook/react-vite": "10.0.6",
+    "@storybook/react-vite": "^10.0.6",
     "@tailwindcss/postcss": "^4.1.17",
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",
@@ -85,7 +85,8 @@
     "rimraf": "^6.1.0",
     "storybook": "10.0.6",
     "tailwindcss": "^4.1.17",
-    "typescript": "~5.9.3",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.9.3",
     "typescript-eslint": "^8.45.0",
     "vite": "^7.1.7",
     "vitest": "^4.0.8"

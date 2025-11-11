@@ -11,11 +11,6 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': resolve(__dirname, './src'),
-        '@/components': resolve(__dirname, './src/components'),
-        '@/styles': resolve(__dirname, './src/styles'),
-        '@/types': resolve(__dirname, './src/types'),
-        '@/utils': resolve(__dirname, './src/utils'),
-        '@/lib': resolve(__dirname, './src/lib'),
       },
     },
     server: {
@@ -26,8 +21,10 @@ export default defineConfig(({ mode }) => {
           lib: {
             entry: resolve(__dirname, 'src/index.ts'),
             name: 'SnackactUI',
-            fileName: format =>
-              `index.${format === 'es' ? 'js' : format === 'cjs' ? 'cjs' : `${format}.js`}`,
+            fileName: format => {
+              console.log(format)
+              return `index.${format === 'es' ? 'js' : format === 'cjs' ? 'cjs' : `${format}.js`}`
+            },
             formats: ['es', 'cjs'],
           },
           rollupOptions: {
@@ -41,6 +38,7 @@ export default defineConfig(({ mode }) => {
               },
             },
           },
+          cssCodeSplit: false,
           sourcemap: true,
           /* Don't clear dist folder to preserve .d.ts files from TypeScript compilation
           Must cleanup dist manually before running build:lib script 
