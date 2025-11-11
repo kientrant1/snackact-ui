@@ -17,6 +17,7 @@
 /build
 /dist
 dist-app
+dist-storybook
 
 # misc
 .DS_Store
@@ -48,4 +49,3 @@ lerna-debug.log*
 *.sw?
 
 *storybook.log
-storybook-static

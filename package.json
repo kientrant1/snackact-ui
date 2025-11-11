@@ -51,7 +51,7 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build",
+    "storybook:build": "storybook build --output-dir dist-storybook",
     "version:bump": "yarn version",
     "prepare": "husky",
     "prepublishOnly": "yarn build:lib && yarn typecheck && yarn lint"
