@@ -8,6 +8,16 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, './src'),
+        '@/components': resolve(__dirname, './src/components'),
+        '@/styles': resolve(__dirname, './src/styles'),
+        '@/types': resolve(__dirname, './src/types'),
+        '@/utils': resolve(__dirname, './src/utils'),
+        '@/lib': resolve(__dirname, './src/lib'),
+      },
+    },
     server: {
       port: 3001,
     },

@@ -1,1 +1,6 @@
-export { Button } from './Button'
+export { AnswerOption } from './quiz/AnswerOption'
+export { QuestionCard } from './quiz/QuestionCard'
+export { QuestionNavigator } from './quiz/QuestionNavigator'
+export { QuizHeader } from './quiz/QuizHeader'
+export { QuizNavigation } from './quiz/QuizNavigation'
+export { QuizResults } from './quiz/QuizResults'
