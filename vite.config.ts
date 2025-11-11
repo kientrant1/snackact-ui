@@ -19,10 +19,14 @@ export default defineConfig(({ mode }) => {
     build: isLibMode
       ? {
           lib: {
-            entry: resolve(__dirname, 'src/index.ts'),
-            name: 'SnackactUI',
-            fileName: format => {
-              console.log(format)
+            entry: {
+              index: resolve(__dirname, 'src/index.ts'),
+              styles: resolve(__dirname, 'src/styles.ts'),
+            },
+            fileName: (format, entryName) => {
+              if (entryName === 'styles') {
+                return `styles.${format === 'es' ? 'js' : 'cjs'}`
+              }
               return `index.${format === 'es' ? 'js' : format === 'cjs' ? 'cjs' : `${format}.js`}`
             },
             formats: ['es', 'cjs'],

@@ -92,7 +92,7 @@ To test this library in another local application during development:
 
    ```typescript
    import { Button } from 'snackact-ui';
-   import 'snackact-ui/styles';
+   import 'snackact-ui/css';
 
    function App() {
      return (

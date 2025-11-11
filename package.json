@@ -12,7 +12,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles": "./dist/snackact-ui.css"
+    "./css": "./dist/snackact-ui.css"
   },
   "files": [
     "dist",

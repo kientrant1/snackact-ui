@@ -1,0 +1,25 @@
+import { QuizHeader } from '@/index'
+import '@/styles'
+
+export const Quiz = () => {
+  const handleReset = () => {
+    throw new Error('Function not implemented.')
+  }
+
+  return (
+    <div className="min-h-screen p-4">
+      <div className="max-w-4xl mx-auto">
+        <QuizHeader
+          timer={0}
+          currentIndex={0}
+          totalQuestions={5}
+          submitted={false}
+          score={1}
+          progress={0}
+          onReset={handleReset}
+          onToggleNavigator={() => {}}
+        />
+      </div>
+    </div>
+  )
+}
