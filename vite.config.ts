@@ -33,7 +33,10 @@ export default defineConfig(({ mode }) => {
           },
           cssCodeSplit: false,
           sourcemap: true,
-          emptyOutDir: true,
+          /* Don't clear dist folder to preserve .d.ts files from TypeScript compilation
+          Must cleanup dist manually before running build:lib script 
+          Or using plugin: vite-plugin-dts*/
+          emptyOutDir: false,
         }
       : {
           // Regular app build config for development

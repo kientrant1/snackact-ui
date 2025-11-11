@@ -62,6 +62,49 @@ This library is built with:
 - 📖 Storybook
 - ⚡ Vite
 
+### Testing Library From Other App Locally
+
+To test this library in another local application during development:
+
+1. **Build the library:**
+
+   ```bash
+   yarn build:lib
+   ```
+
+2. **In your test application's `package.json`, add the local dependency:**
+
+   ```json
+   {
+     "dependencies": {
+       "snackact-ui": "file:../snackact-ui"
+     }
+   }
+   ```
+
+3. **Install dependencies in your test app:**
+
+   ```bash
+   yarn install
+   ```
+
+4. **Use the library in your test app:**
+
+   ```typescript
+   import { Button } from 'snackact-ui';
+   import 'snackact-ui/styles';
+
+   function App() {
+     return (
+       <Button variant="primary">
+         Testing local library
+       </Button>
+     );
+   }
+   ```
+
+**Note:** After making changes to the library, rebuild it and reinstall in your test app to see the updates.
+
 ## Requirements
 
 - React 18.0.0 or higher

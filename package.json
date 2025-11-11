@@ -42,7 +42,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:lib": "tsc -p tsconfig.lib.json && vite build --mode lib",
+    "build:lib": "rimraf dist && vite build --mode lib && yarn build:type",
+    "build:type": "tsc -p tsconfig.lib.json",
     "test": "vitest",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -81,6 +82,7 @@
     "prettier": "^3.6.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "rimraf": "^6.1.0",
     "storybook": "10.0.6",
     "tailwindcss": "^4.1.17",
     "typescript": "~5.9.3",
