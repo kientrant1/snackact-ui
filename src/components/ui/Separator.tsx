@@ -1,14 +1,14 @@
 import {
   forwardRef,
   type ComponentPropsWithoutRef,
-  type ElementRef,
+  type ComponentRef,
 } from 'react'
 import { Root } from '@radix-ui/react-separator'
 
 import { cn } from '@/lib/css'
 
 const Separator = forwardRef<
-  ElementRef<typeof Root>,
+  ComponentRef<typeof Root>,
   ComponentPropsWithoutRef<typeof Root>
 >(
   (
@@ -21,7 +21,7 @@ const Separator = forwardRef<
       orientation={orientation}
       className={cn(
         'shrink-0 bg-border',
-        orientation === 'horizontal' ? 'h-[1px] w-full' : 'h-full w-[1px]',
+        orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',
         className
       )}
       {...props}

@@ -1,4 +1,8 @@
-import { forwardRef } from 'react'
+import {
+  forwardRef,
+  type ComponentPropsWithoutRef,
+  type ComponentRef,
+} from 'react'
 import {
   Corner,
   Root,
@@ -10,8 +14,8 @@ import {
 import { cn } from '@/lib/css'
 
 const ScrollArea = forwardRef<
-  React.ElementRef<typeof Root>,
-  React.ComponentPropsWithoutRef<typeof Root>
+  ComponentRef<typeof Root>,
+  ComponentPropsWithoutRef<typeof Root>
 >(({ className, children, ...props }, ref) => (
   <Root
     ref={ref}
@@ -26,8 +30,8 @@ const ScrollArea = forwardRef<
 ScrollArea.displayName = Root.displayName
 
 const ScrollBar = forwardRef<
-  React.ElementRef<typeof ScrollAreaScrollbar>,
-  React.ComponentPropsWithoutRef<typeof ScrollAreaScrollbar>
+  ComponentRef<typeof ScrollAreaScrollbar>,
+  ComponentPropsWithoutRef<typeof ScrollAreaScrollbar>
 >(({ className, orientation = 'vertical', ...props }, ref) => (
   <ScrollAreaScrollbar
     ref={ref}
@@ -35,9 +39,9 @@ const ScrollBar = forwardRef<
     className={cn(
       'flex touch-none select-none transition-colors',
       orientation === 'vertical' &&
-        'h-full w-2.5 border-l border-l-transparent p-[1px]',
+        'h-full w-2.5 border-l border-l-transparent p-px',
       orientation === 'horizontal' &&
-        'h-2.5 flex-col border-t border-t-transparent p-[1px]',
+        'h-2.5 flex-col border-t border-t-transparent p-px',
       className
     )}
     {...props}

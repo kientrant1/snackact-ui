@@ -1,14 +1,14 @@
 import { Indicator, Root } from '@radix-ui/react-progress'
-
-import { cn } from '@/lib/css'
 import {
   forwardRef,
   type ComponentPropsWithoutRef,
-  type ElementRef,
+  type ComponentRef,
 } from 'react'
 
+import { cn } from '@/lib/css'
+
 const Progress = forwardRef<
-  ElementRef<typeof Root>,
+  ComponentRef<typeof Root>,
   ComponentPropsWithoutRef<typeof Root>
 >(({ className, value, ...props }, ref) => (
   <Root
