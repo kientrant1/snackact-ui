@@ -1413,6 +1413,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/manager-api@npm:^8.6.14":
+  version: 8.6.14
+  resolution: "@storybook/manager-api@npm:8.6.14"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10c0/141089caf50df9f1dbd18c22b8e8dfa45641f67ab148c9956c046c0141ff7a70f3341f440c454d5f6247dac389499d67bad8b6c81cbcd6f08c7fe34bf42fd264
+  languageName: node
+  linkType: hard
+
 "@storybook/react-dom-shim@npm:10.0.6":
   version: 10.0.6
   resolution: "@storybook/react-dom-shim@npm:10.0.6"
@@ -1461,6 +1470,15 @@ __metadata:
     typescript:
       optional: true
   checksum: 10c0/7545a3f84a64ccfacc84f41d4f4b744fb71861f1a413ba48e4440694fb89f591273182771324097c420fca65253d738bde852e14a776e5b1df30a0d4beb100b0
+  languageName: node
+  linkType: hard
+
+"@storybook/theming@npm:^8.6.14":
+  version: 8.6.14
+  resolution: "@storybook/theming@npm:8.6.14"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10c0/765bfbfedcbdcdb719b164a14bb61b8ad60819c6124d0e1f243b6b45e62de877ec8dff6259092207a58d6c2771f4883650e9784a2be1aaf7e0ef0fe75465db0d
   languageName: node
   linkType: hard
 
@@ -4644,7 +4662,9 @@ __metadata:
     "@radix-ui/react-separator": "npm:^1.1.8"
     "@radix-ui/react-slot": "npm:^1.2.4"
     "@radix-ui/react-tabs": "npm:^1.1.13"
+    "@storybook/manager-api": "npm:^8.6.14"
     "@storybook/react-vite": "npm:^10.0.6"
+    "@storybook/theming": "npm:^8.6.14"
     "@tailwindcss/postcss": "npm:^4.1.17"
     "@types/node": "npm:^24.6.0"
     "@types/react": "npm:^19.1.16"

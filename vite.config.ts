@@ -13,9 +13,6 @@ export default defineConfig(({ mode }) => {
         '@': resolve(__dirname, './src'),
       },
     },
-    server: {
-      port: 3001,
-    },
     build: isLibMode
       ? {
           lib: {
@@ -51,6 +48,7 @@ export default defineConfig(({ mode }) => {
         }
       : {
           // Regular app build config for development
+          // TO BE REMOVED
           outDir: 'dist-app',
         },
   }
