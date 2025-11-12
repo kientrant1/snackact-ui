@@ -30,7 +30,10 @@ const RadioGroupItem = forwardRef<
       {...props}
     >
       <Indicator className="flex items-center justify-center">
-        <Circle className="h-3.5 w-3.5 fill-primary" />
+        <Circle
+          className="h-3.5 w-3.5"
+          style={{ fill: 'var(--color-primary)' }}
+        />
       </Indicator>
     </Item>
   )

@@ -4,7 +4,7 @@ const config: Config = {
   // 'class' strategy: Dark mode is toggled by adding/removing 'dark' class on a parent element (typically <html> or <body>)
   // Use dark mode variants in components like: className="bg-white dark:bg-gray-900"
   darkMode: 'class',
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       fontFamily: {
