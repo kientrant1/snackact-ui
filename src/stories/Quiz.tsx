@@ -9,6 +9,7 @@ import { answers, questions } from './data/quiz'
 
 import '@/styles'
 
+type Theme = 'light' | 'dark'
 type QuizComponentName =
   | 'ALL'
   | 'QuizHeader'
@@ -17,10 +18,11 @@ type QuizComponentName =
   | 'QuizNavigation'
   | 'QuizResults'
 export interface QuizProps {
+  theme: Theme
   quizComponentName: QuizComponentName
 }
 
-export const Quiz = ({ quizComponentName }: QuizProps) => {
+export const Quiz = ({ theme, quizComponentName }: QuizProps) => {
   const isShowAllComponents = quizComponentName === 'ALL'
   const tags = ['ALL', 'Theory', 'Practical']
   const filterTag = tags[0]
@@ -34,7 +36,7 @@ export const Quiz = ({ quizComponentName }: QuizProps) => {
 
   return (
     <div className="min-h-screen p-4">
-      <div className="max-w-4xl mx-auto snackact-ui-dark-theme">
+      <div className={`max-w-4xl mx-auto snackact-ui-theme-${theme}`}>
         {(isShowAllComponents || quizComponentName === 'QuizHeader') && (
           <QuizHeader
             timer={0}

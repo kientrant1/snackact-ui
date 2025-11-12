@@ -16,6 +16,7 @@ type Story = StoryObj<typeof meta>
 
 export const MyQuiz: Story = {
   args: {
+    theme: 'light',
     quizComponentName: 'ALL',
   },
 }
