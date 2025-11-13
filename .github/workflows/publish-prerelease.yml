@@ -42,10 +42,10 @@ jobs:
 
           # Set package.json to full prerelease version (0.0.5-alpha.1)
           npm version "$TAG_VERSION" --no-git-tag-version
-          echo "Updated package.json to version: $(node -p "require('./package.json').version")"
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          echo "Updated package.json to version: $PACKAGE_VERSION"
 
           # Check base version in package.json must match tag base
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
           if [ "$PACKAGE_VERSION" != "$TAG_VERSION" ]; then
             echo "❌ Version mismatch! Tag ($TAG_VERSION) does not match package.json ($PACKAGE_VERSION)"
             exit 1
