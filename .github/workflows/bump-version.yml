@@ -36,18 +36,26 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Bump Version in Package JSON (no git commit)
+        id: bump
+        run: |
+          new_version=$(npm version ${{ github.event.inputs.release_type }} --no-git-tag-version)
+          echo "new_version=${new_version}" >> $GITHUB_OUTPUT
+
       - name: Configure Git User
         run: |
           git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-
-      - name: Bump Version
-        id: bump
+          git config user.email "${{ github.actor }}@bot.noreply.github.com"
+      
+      - name: Commit Version Bump
         run: |
-          new_version=$(npm version ${{ github.event.inputs.release_type }} -m "chore(release): %s")
-          echo "new_version=${new_version}" >> $GITHUB_OUTPUT
-
-      - name: Push changes + tag
+          git add package.json || true
+          git commit -m "chore(release): bump version ${{ steps.bump.outputs.new_version }}"
+      
+      - name: Create Tag
+        run: |
+          git tag ${{ steps.bump.outputs.new_version }}
+      - name: Push Commit And Tag
         run: |
           git push origin HEAD
           git push origin ${{ steps.bump.outputs.new_version }}
