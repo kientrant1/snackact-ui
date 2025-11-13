@@ -9,3 +9,6 @@ export {
 } from '@/components/quiz'
 
 export { ChatInput, ChatHistory } from '@/components/chat'
+
+export { OwlWatcher } from '@/components/authen/OwlWatcher'
+export { Toast } from '@/components/ui/Toast'

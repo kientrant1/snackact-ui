@@ -3,14 +3,16 @@
   "version": "0.0.4",
   "type": "module",
   "description": "A tasty collection of bite-sized React components that make building fun, interactive UIs a treat",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./icons": {
+      "types": "./dist/icons.d.ts",
+      "import": "./dist/icons.js",
+      "require": "./dist/icons.cjs"
     },
     "./css": "./dist/snackact-ui.css"
   },

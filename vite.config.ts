@@ -18,11 +18,15 @@ export default defineConfig(({ mode }) => {
           lib: {
             entry: {
               index: resolve(__dirname, 'src/index.ts'),
+              icons: resolve(__dirname, 'src/icons.ts'),
               styles: resolve(__dirname, 'src/styles.ts'),
             },
             fileName: (format, entryName) => {
               if (entryName === 'styles') {
                 return `styles.${format === 'es' ? 'js' : 'cjs'}`
+              }
+              if (entryName === 'icons') {
+                return `icons.${format === 'es' ? 'js' : 'cjs'}`
               }
               return `index.${format === 'es' ? 'js' : format === 'cjs' ? 'cjs' : `${format}.js`}`
             },
