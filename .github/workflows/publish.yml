@@ -38,11 +38,15 @@ jobs:
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
           TAG_VERSION=${GITHUB_REF#refs/tags/v}
 
+          # Take part before first '-' (0.0.5 from 0.0.5-alpha.1)
+          TAG_BASE_VERSION=${TAG_VERSION%%-*}
+
           echo "package.json version: $PACKAGE_VERSION"
           echo "GitHub tag version: $TAG_VERSION"
+          echo "GitHub tag base version: $TAG_BASE_VERSION"
 
-          if [ "$PACKAGE_VERSION" != "$TAG_VERSION" ]; then
-            echo "❌ Version mismatch! Tag ($TAG_VERSION) does not match package.json ($PACKAGE_VERSION)"
+          if [ "$PACKAGE_VERSION" != "$TAG_BASE_VERSION" ]; then
+            echo "❌ Version mismatch! Tag ($TAG_BASE_VERSION) does not match package.json ($PACKAGE_VERSION)"
             exit 1
           fi
           echo "✅ Versions match, continuing..."
