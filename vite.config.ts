@@ -21,14 +21,9 @@ export default defineConfig(({ mode }) => {
               icons: resolve(__dirname, 'src/icons.ts'),
               styles: resolve(__dirname, 'src/styles.ts'),
             },
+            // Output file names from list entries in dist folder
             fileName: (format, entryName) => {
-              if (entryName === 'styles') {
-                return `styles.${format === 'es' ? 'js' : 'cjs'}`
-              }
-              if (entryName === 'icons') {
-                return `icons.${format === 'es' ? 'js' : 'cjs'}`
-              }
-              return `index.${format === 'es' ? 'js' : format === 'cjs' ? 'cjs' : `${format}.js`}`
+              return `${entryName}.${format === 'es' ? 'js' : 'cjs'}`
             },
             formats: ['es', 'cjs'],
           },
