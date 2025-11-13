@@ -36,23 +36,33 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Bump version
+      - name: Bump Version in Package JSON (no git commit)
         id: bump
         run: |
-          new_version=$(npm version ${{ github.event.inputs.release_type }} -m "chore(release): %s")
+          new_version=$(npm version ${{ github.event.inputs.release_type }} --no-git-tag-version)
           echo "new_version=${new_version}" >> $GITHUB_OUTPUT
 
-      - name: Configure git user
+      - name: Configure Git User
         run: |
           git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-
-      - name: Push changes + tag
+          git config user.email "${{ github.actor }}@bot.noreply.github.com"
+      
+      - name: Commit Version Bump
+        # git add package.json package.lock.json || true
+        run: |
+          git add package.json || true
+          git commit -m "chore(release): bump version ${{ steps.bump.outputs.new_version }}"
+      
+      - name: Create Tag
+        run: |
+          git tag ${{ steps.bump.outputs.new_version }}
+      - name: Push Commit And Tag
         run: |
           git push origin HEAD
           git push origin ${{ steps.bump.outputs.new_version }}
 
       - name: Create GitHub Release
+        # This will trigger publish.yml workflow
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.bump.outputs.new_version }}
