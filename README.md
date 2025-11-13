@@ -29,38 +29,7 @@ function App() {
 
 ### Available Components
 
-#### Button
-
-A customizable button component with multiple variants.
-
-```typescript
-import { Button } from 'snackact-ui';
-
-<Button variant="primary" disabled={false} onClick={handleClick}>
-  Primary Button
-</Button>
-
-<Button variant="secondary">
-  Secondary Button
-</Button>
-```
-
-**Props:**
-
-- `children`: React.ReactNode - Button content
-- `onClick?`: () => void - Click handler
-- `variant?`: 'primary' | 'secondary' - Button style variant (default: 'primary')
-- `disabled?`: boolean - Whether the button is disabled (default: false)
-
-## Development
-
-This library is built with:
-
-- ⚛️ React 19
-- 🏷️ TypeScript
-- 🎨 Tailwind CSS v4
-- 📖 Storybook
-- ⚡ Vite
+- Refer to [UI document](https://snackact-ui.vercel.app/)
 
 ### Testing Library From Other App Locally
 
@@ -109,6 +78,16 @@ To test this library in another local application during development:
 
 - React 18.0.0 or higher
 - React DOM 18.0.0 or higher
+
+## Development
+
+This library is built with:
+
+- ⚛️ React 19
+- 🏷️ TypeScript
+- 🎨 Tailwind CSS v4
+- 📖 Storybook
+- ⚡ Vite
 
 ## License
 
