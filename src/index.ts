@@ -7,3 +7,5 @@ export {
   QuizNavigation,
   QuizResults,
 } from '@/components/quiz'
+
+export { ChatInput, ChatHistory } from '@/components/chat'
