@@ -36,16 +36,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Bump version
+      - name: Configure Git User
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Bump Version
         id: bump
         run: |
           new_version=$(npm version ${{ github.event.inputs.release_type }} -m "chore(release): %s")
           echo "new_version=${new_version}" >> $GITHUB_OUTPUT
-
-      - name: Configure git user
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
 
       - name: Push changes + tag
         run: |
