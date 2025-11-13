@@ -42,6 +42,11 @@ jobs:
           new_version=$(npm version ${{ github.event.inputs.release_type }} -m "chore(release): %s")
           echo "new_version=${new_version}" >> $GITHUB_OUTPUT
 
+      - name: Configure git user
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
       - name: Push changes + tag
         run: |
           git push origin HEAD
