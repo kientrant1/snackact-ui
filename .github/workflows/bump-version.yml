@@ -1,0 +1,55 @@
+name: Bump Version and Create Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: "Bump Version Type"
+        required: true
+        # default: "patch"
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # needed for tags
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Bump version
+        id: bump
+        run: |
+          new_version=$(npm version ${{ github.event.inputs.release_type }} -m "chore(release): %s")
+          echo "new_version=${new_version}" >> $GITHUB_OUTPUT
+
+      - name: Push changes + tag
+        run: |
+          git push origin HEAD
+          git push origin ${{ steps.bump.outputs.new_version }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.bump.outputs.new_version }}
+          name: Release ${{ steps.bump.outputs.new_version }}
+          generate_release_notes: true
