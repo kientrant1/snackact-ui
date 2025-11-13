@@ -1,3 +1,6 @@
+// Re-export types here
+export type { Message } from '@/types/message'
+
 // Re-export your components here
 export {
   AnswerOption,
