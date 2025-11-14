@@ -8,10 +8,6 @@ on:
   schedule:
     - cron: "0 2 * * 0"
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   gitleaks:
     uses: kientrant1/central-ops/.github/workflows/gitleaks.yml@main
