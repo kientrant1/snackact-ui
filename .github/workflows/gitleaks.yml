@@ -10,5 +10,6 @@ on:
 
 jobs:
   gitleaks:
+    # Get from public repo
     uses: kientrant1/central-ops/.github/workflows/gitleaks.yml@main
     secrets: inherit
