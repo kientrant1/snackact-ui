@@ -11,4 +11,5 @@ on:
 jobs:
   gitleaks:
     uses: kientrant1/central-ops/.github/workflows/shared/gitleaks.yml@main
-    secrets: inherit
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
