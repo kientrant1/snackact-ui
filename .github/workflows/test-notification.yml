@@ -1,0 +1,23 @@
+name: Test Telegram Notification
+
+on:
+  workflow_dispatch:
+    inputs:
+      pkg_name:
+        description: "Package name"
+        required: true
+        default: "my-package"
+      pkg_version:
+        description: "Package version"
+        required: true
+        default: "1.0.0"
+
+jobs:
+  test-telegram-notification:
+    uses: ./.github/workflows/telegram-notify.yml
+    with:
+      pkg_name: ${{ github.event.inputs.pkg_name }}
+      pkg_version: ${{ github.event.inputs.pkg_version }}
+    secrets:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
