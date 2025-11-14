@@ -12,6 +12,11 @@ jobs:
       matrix:
         node-version: [20.x]
 
+    # Outputs to pass package info to notification job
+    outputs:
+      pkg_name: ${{ steps.pkg_info.outputs.name }}
+      pkg_version: ${{ steps.pkg_info.outputs.version }}
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -33,7 +38,7 @@ jobs:
       - name: Build Library
         run: yarn build:lib
 
-      - name: Check Version matches Release Tag
+      - name: Check Version Matches Release Tag
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
           TAG_VERSION=${GITHUB_REF#refs/tags/v}
@@ -47,7 +52,35 @@ jobs:
           fi
           echo "✅ Versions match, continuing..."
 
-      - name: Publish to npm
+      - name: Publish TO NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish
+        run: |
+          # npm publish
+
+          # Check if publish succeeds
+          set -euo pipefail
+          echo "Publishing package..."
+          OUTPUT=$(npm publish 2>&1) || {
+            echo "❌ npm publish failed:"
+            echo "$OUTPUT"
+            exit 1
+          }
+          echo "✅ npm publish succeeded"
+
+      - name: Read Package Info For Notification
+        id: pkg_info
+        run: |
+          echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_OUTPUT
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+  
+  notify:
+    # 👈 only runs if "publish" succeeds
+    needs: publish
+    uses: ./.github/workflows/telegram-notify.yml
+    with:
+      pkg_name: ${{ needs.publish.outputs.pkg_name }}
+      pkg_version: ${{ needs.publish.outputs.pkg_version }}
+    secrets:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

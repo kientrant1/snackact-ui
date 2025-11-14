@@ -16,7 +16,7 @@ on:
         required: true
 
 jobs:
-  notify:
+  telegram-notify:
     runs-on: ubuntu-latest
 
     steps:
@@ -52,7 +52,6 @@ jobs:
             echo "Telegram notification sent successfully ✅"
           else
             echo "Failed to send Telegram notification ❌" >&2
-            
             # Optional: show error description if present
             if echo "$RESPONSE" | jq -e '.description' > /dev/null 2>&1; then
               echo "Error: $(echo "$RESPONSE" | jq -r '.description')" >&2
