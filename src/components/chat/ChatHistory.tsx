@@ -58,6 +58,7 @@ export function ChatHistory({
             messageId={msg.messageId}
             isUser={msg.isUser}
             timestamp={msg.timestamp}
+            images={msg.images}
           />
         ))}
 
