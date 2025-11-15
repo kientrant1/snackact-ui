@@ -1,4 +1,5 @@
 import type { ComponentProps } from '@/types/component'
+import { RemoveIcon } from '@/components/icon'
 
 export interface ImagePreviewData {
   file: File
@@ -61,19 +62,7 @@ export function ImagePreview({
               className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
               aria-label="Remove image"
             >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <RemoveIcon />
             </button>
           </div>
         </div>

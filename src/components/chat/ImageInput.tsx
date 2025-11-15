@@ -5,6 +5,7 @@ import {
   processClipboardImages,
   type ClipboardImageData,
 } from '@/utils/clipboard'
+import { RemoveIcon, PlusIcon } from '@/components/icon'
 
 export interface ImageData {
   file: File
@@ -204,19 +205,7 @@ export function ImageInput({
                   className="p-1 text-white hover:text-red-300 transition-colors"
                   aria-label={`Remove ${image.name}`}
                 >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  <RemoveIcon className="w-5 h-5" />
                 </button>
               </div>
               <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs p-2">
@@ -250,19 +239,7 @@ export function ImageInput({
         >
           <div className="flex flex-col items-center space-y-2">
             <div className="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
-              <svg
-                className="w-6 h-6 text-gray-500 dark:text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 4v16m8-8H4"
-                />
-              </svg>
+              <PlusIcon className="w-6 h-6 text-gray-500 dark:text-gray-400" />
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-400">
               <p className="font-medium">
