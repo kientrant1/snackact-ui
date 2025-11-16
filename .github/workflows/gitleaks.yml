@@ -9,7 +9,7 @@ on:
     - cron: "0 2 * * 0"
 
 jobs:
-  gitleaks:
+  gitleaks-scan:
     # Get from public repo
     uses: kientrant1/central-ops/.github/workflows/gitleaks.yml@main
     secrets: inherit
