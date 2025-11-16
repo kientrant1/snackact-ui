@@ -13,6 +13,7 @@ import prettierConfig from 'eslint-config-prettier'
 export default defineConfig([
   globalIgnores([
     'dist',
+    'dist-storybook',
     'node_modules',
     'build',
     'coverage',
