@@ -1,0 +1,15 @@
+# Scans for Outdated Dependencies
+# Create PRs to keep your dependencies up to date
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule: { interval: monthly }
+    groups:
+      all-minor-patches:
+        patterns: ['*']
+        update-types:
+          - 'minor'
+          - 'patch'
+    # assignees:
+    #   - "githubUsernameWithout@"
