@@ -1,6 +1,6 @@
 {
   "name": "snackact-ui",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "type": "module",
   "description": "A tasty collection of bite-sized React components that make building fun, interactive UIs a treat",
   "exports": {
