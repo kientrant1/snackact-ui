@@ -2,6 +2,8 @@
 export type { Message } from '@/types/message'
 
 // Re-export your components here
+export { MarkdownRenderer } from '@/components/ui'
+
 export {
   AnswerOption,
   QuestionCard,
