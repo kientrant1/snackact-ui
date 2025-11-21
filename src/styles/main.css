@@ -78,3 +78,7 @@
     --radius: 0.5rem;
   }
 }
+
+a {
+  @apply shadow-none border-0;
+}

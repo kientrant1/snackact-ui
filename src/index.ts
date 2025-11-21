@@ -17,6 +17,7 @@ export {
 export { ChatInput, ChatHistory } from '@/components/chat'
 
 export { OwlWatcher } from '@/components/authen/OwlWatcher'
+export { LoginForm } from '@/components/authen/LoginForm'
 export { Toast } from '@/components/ui/Toast'
 export { ToastEditor } from '@/components/editor/ToastEditor'
 
